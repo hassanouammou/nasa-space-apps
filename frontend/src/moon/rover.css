@@ -1,0 +1,49 @@
+.rover-console {position:absolute;z-index:4;right:18px;top:90px;width:min(365px,calc(100% - 36px));display:grid;gap:10px;max-height:calc(100% - 105px);overflow:auto;padding:13px;border:1px solid #416c75;border-radius:12px;background:#0c1724f5;box-shadow:0 10px 32px #0009;color:#ecf7fa;scrollbar-width:thin}
+.rover-head,.rover-status,.rover-source {display:flex;align-items:center;gap:7px}
+.rover-head>div {flex:1}
+.rover-head h2 {font-size:25px;line-height:1.1;margin-top:4px;letter-spacing:-.035em}
+.rover-label {display:flex;align-items:center;gap:5px;color:#97efdf;font-size:9px;letter-spacing:.13em;font-weight:800}
+.rover-head .moon-alt {min-height:33px;padding:6px 7px;font-size:11px;white-space:nowrap}
+.rover-close {display:grid;place-items:center;min-width:30px;height:32px;border-radius:6px;color:#bfcfdb}
+.rover-close:hover {background:#21384a}
+.rover-status {font-size:11px;color:#a6c5d3}
+.rover-status strong {color:#b0f5e7}
+.rover-status>span:last-child {margin-left:auto;font-variant-numeric:tabular-nums}
+.rover-dot {width:7px;height:7px;flex-shrink:0;border-radius:50%;background:#75c2e0;box-shadow:0 0 7px #75c2e0}
+.rover-dot.scanning {background:#ffcf8d;box-shadow:0 0 8px #ffcf8d}
+.rover-dot.transmitting,.rover-dot.delivered {background:#83ffe8;box-shadow:0 0 10px #83ffe8}
+.rover-reading {padding:8px 9px;border:1px solid #365767;border-radius:7px;background:#122637;animation:rover-packet .8s ease-out}
+@keyframes rover-packet {from {border-color:#8fffe7;background:#204c4d} to {border-color:#365767;background:#122637}}
+.rover-site {font-size:12px;font-weight:750;color:#e5f9f6}
+.rover-metrics {display:grid;grid-template-columns:auto auto 1fr;align-items:end;gap:12px;margin-top:5px}
+.rover-metrics small {display:block;font-size:10px;color:#b2cddd}
+.rover-metrics strong {font-size:18px;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.rover-metrics strong span {font-size:12px;color:#9cefee}
+.rover-chart {height:30px;display:flex;gap:3px;align-items:flex-end;justify-content:flex-end;border-bottom:1px solid #396777}
+.rover-chart i {width:clamp(5px,1.1vw,12px);background:#509aa8;border-radius:2px 2px 0 0;animation:rover-bar .38s ease-out;transform-origin:bottom}
+.rover-chart i:last-child {background:#8dffe5}
+@keyframes rover-bar {from {transform:scaleY(.1)} to {transform:scaleY(1)}}
+.rover-analysis {display:grid;gap:7px}
+.rover-analysis p {margin:0;font-size:12px;line-height:1.45;color:#d4e8f1}
+.rover-thread {display:flex;flex-direction:column;gap:4px;max-height:112px;overflow:auto;scrollbar-width:thin}
+.rover-exchange {flex-shrink:0;display:grid;gap:3px;border-left:2px solid #73d4ca;background:#132838;padding:6px 8px}
+.rover-exchange strong {font-size:12px;overflow-wrap:anywhere}
+.rover-exchange small {font-size:9px;color:#abccdc}
+.rover-prompts {display:flex;flex-wrap:wrap;gap:4px}
+.rover-prompts button {padding:4px 6px;font-size:10px;border:1px solid #406270;border-radius:5px;color:#c4e9ee}
+.rover-prompts button:hover {background:#224653}
+.rover-form {display:flex;gap:5px}
+.rover-form input {width:100%;min-width:0;background:#0b1520;border:1px solid #3e6473;border-radius:6px;padding:7px 8px;color:#e7f8f7;font-size:13px}
+.rover-form button {display:grid;place-items:center;min-width:34px;border-radius:6px;background:#a4f5e5;color:#132b33}
+.rover-form button:disabled {opacity:.45}
+.rover-source {justify-content:space-between;font-size:10px;color:#afccd6}
+.rover-source a {color:#a3efdc;text-decoration:underline;text-underline-offset:2px}
+.moon-screen.tracking-rover .moon-markers,.moon-screen.tracking-rover .moon-tools,.moon-screen.tracking-rover .moon-story,.moon-screen.tracking-rover .moon-station-list {display:none}
+@media (max-width:670px) {
+  .rover-console {top:auto;bottom:9px;right:9px;width:min(365px,calc(100% - 18px));max-height:62%;padding:9px;gap:7px}
+  .rover-head h2 {font-size:19px}
+  .moon-screen:has(.rover-console) .moon-tools,.moon-screen:has(.rover-console) .moon-story,.moon-screen:has(.rover-console) .moon-station-list {display:none}
+}
+@media (prefers-reduced-motion:reduce) {
+  .rover-reading,.rover-chart i {animation:none}
+}

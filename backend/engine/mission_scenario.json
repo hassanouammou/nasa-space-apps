@@ -1,0 +1,38 @@
+{
+  "id": "LUNA-01",
+  "name": "Mission Explorer",
+  "destination": "Taurus–Littrow Valley",
+  "duration": 360,
+  "initial": {"oxygen":100,"battery":100,"water":100,"suit":85,"hr":75,"temperature":36.8,"fatigue":20,"sleep":7,"spo2":98},
+  "reserve": {"oxygen":10,"battery":10,"water":5,"suit":30},
+  "events": {
+    "E00":{"title":"Mission briefing","description":"Explore Taurus–Littrow, observe Apollo heritage from a distance, collect two geological samples and return to base within six simulated hours.","choices":[{"id":"start","label":"Begin mission","description":"Acknowledge the objectives and enter the airlock.","next":"E01","effects":{}}]},
+    "E01":{"title":"Suit up for the surface","description":"Before leaving the airlock, choose how to prepare your suit and yourself for the traverse.","choices":[
+      {"id":"check","label":"Complete equipment check","description":"Inspect seals, battery and life support before departure.","next":"E02","effects":{"time":15,"fatigue":-5,"suit":10}},
+      {"id":"quick","label":"Quick preparation","description":"Leave the airlock sooner with fewer equipment checks.","next":"E02","effects":{"time":5,"suit":-10}},
+      {"id":"pre_rest","label":"Rest before departure","description":"Take extra recovery time and carry out a brief suit inspection.","next":"E02","effects":{"time":20,"fatigue":-15,"suit":5}}
+    ]},
+    "E02":{"title":"Choose your traverse","description":"Two routes approach the Apollo 17 rover observation point. The ridge is shorter, with a steeper grade.","choices":[
+      {"id":"ridge","label":"Difficult and short route","description":"Cross the rocky ridge toward the observation perimeter.","next":"E03","position":"rover","effects":{"time":70,"fatigue":15,"hr":15,"oxygen":-12,"battery":-11,"water":-10,"temperature":0.3}},
+      {"id":"valley","label":"Easy and longer route","description":"Follow the gentler valley terrain toward the same perimeter.","next":"E03","position":"rover","effects":{"time":95,"fatigue":6,"hr":5,"oxygen":-7,"battery":-14,"water":-7,"temperature":0.1}}
+    ]},
+    "E03":{"title":"Apollo heritage in sight","description":"Your optics have located the final parking area of Apollo 17’s Lunar Roving Vehicle. Log the observation while remaining outside the heritage perimeter.","choices":[
+      {"id":"scan","label":"Log rover discovery","description":"Survey the vehicle remotely. Fatigue rises as the surface shift progresses.","next":"E05","discover":"H01","effects":{"time":55,"oxygen":-10,"battery":-9,"water":-12,"fatigue":53,"hr":28,"temperature":0.3,"spo2":-2}}
+    ]},
+    "E05":{"title":"Fatigue incident","description":"Mission Control requests a recovery decision after the extended surface survey. Compare the current telemetry with your return reserves.","choices":[
+      {"id":"rest","label":"Rest in a safe area","description":"Pause in a sheltered spot before attempting science operations.","next":"E06","position":"science","effects":{"time":15,"fatigue":-25,"hr":-15,"oxygen":-2,"battery":-3,"water":-5,"temperature":-0.3,"spo2":1}},
+      {"id":"continue","label":"Continue the mission","description":"Proceed directly to the science site under elevated exertion.","next":"E06","position":"science","effects":{"time":10,"fatigue":15,"hr":12,"oxygen":-10,"battery":-6,"water":-9,"temperature":0.3,"spo2":-3}},
+      {"id":"early","label":"Return early","description":"Abort science operations and take the emergency shortcut directly to base.","next":"E08","return":true,"early":true,"position":"base","effects":{"time":25,"hr":-5,"oxygen":-15,"battery":-9,"water":-7}}
+    ]},
+    "E06":{"title":"Collect geological samples","description":"The sample field lies outside the historical perimeter. Spend resources on the science objective or preserve them for the return.","choices":[
+      {"id":"two","label":"Collect two samples","description":"Collect basalt and regolith for the complete science objective.","samples":2,"next":"E07","effects":{"time":85,"fatigue":14,"hr":10,"oxygen":-14,"battery":-12,"water":-12,"temperature":0.2,"spo2":-1}},
+      {"id":"one","label":"Collect one sample","description":"Collect a basalt specimen with less exposure and effort.","samples":1,"next":"E07","effects":{"time":45,"fatigue":6,"hr":4,"oxygen":-7,"battery":-7,"water":-6}},
+      {"id":"skip","label":"Skip collection","description":"Preserve supplies and plan the return to base.","next":"E07","effects":{}}
+    ]},
+    "E07":{"title":"Return to base","description":"Check suit reserves and physiological telemetry. The valley route reduces exertion, while the direct route saves time.","choices":[
+      {"id":"direct","label":"Direct return route","description":"Take the steeper shortcut. If return limits are exceeded, this attempt triggers rescue.","next":"E08","return":true,"position":"base","effects":{"time":60,"fatigue":10,"hr":7,"oxygen":-20,"battery":-15,"water":-15,"suit":-8,"temperature":0.3,"spo2":-1}},
+      {"id":"safer","label":"Safer return route","description":"Follow the sheltered valley corridor. If return limits are exceeded, this attempt triggers rescue.","next":"E08","return":true,"position":"base","effects":{"time":80,"fatigue":-10,"hr":-20,"oxygen":-14,"battery":-12,"water":-10,"suit":-3,"temperature":-0.5,"spo2":2}}
+    ]},
+    "E08":{"title":"Mission debrief","description":"Review your mission record.","choices":[]}
+  }
+}

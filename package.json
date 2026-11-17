@@ -1,0 +1,7 @@
+{
+  "name": "junior-astronaut-workspace",
+  "private": true,
+  "scripts": {
+    "build:demo": "npm --prefix frontend run build -- --mode portable --outDir ../dist --emptyOutDir && python3 scripts/package_demo.py"
+  }
+}

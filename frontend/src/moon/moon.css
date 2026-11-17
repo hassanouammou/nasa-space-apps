@@ -1,0 +1,163 @@
+.moon-game {
+  --moon-dark:#090e17;
+  --moon-panel:#111d2b;
+  --moon-text:#f4f7fa;
+  --moon-sub:#b4c4d2;
+  --moon-accent:#b8f7df;
+  --moon-cyan:#88d6f3;
+  --moon-gold:#f3c185;
+  --moon-edge:#365061;
+  min-height:100dvh;
+  background:var(--moon-dark);
+  color:var(--moon-text);
+}
+.moon-top,.moon-footer {display:flex;align-items:center;justify-content:space-between;gap:12px;padding-inline:clamp(14px,3vw,42px);max-width:1800px;margin:auto}
+.moon-top {height:61px}
+.moon-dock,.moon-tool-actions {display:contents}
+.moon-menu-toggle,.moon-tools .moon-stations-toggle {display:none}
+.moon-brand,.moon-nav,.moon-nav button {display:flex;align-items:center;gap:9px}
+.moon-brand {font:700 12px 'Orbitron',sans-serif;text-align:left;letter-spacing:.05em}
+.moon-brand>span>span {color:var(--moon-accent)}
+.moon-brand small {display:block;color:var(--moon-sub);font:700 8px Inter,sans-serif;letter-spacing:.21em;margin-top:3px}
+.moon-logo {display:grid;place-items:center;width:34px;height:34px;border:1px solid #506c69;border-radius:7px;background:#193432;color:var(--moon-accent)}
+.moon-nav {gap:6px}
+.moon-nav button {font-size:12px;min-height:35px;padding:6px 10px;background:#121f2d;border:1px solid #293e51;border-radius:6px;color:#d2dfed;font-weight:650}
+.moon-nav button:hover,.moon-nav button[aria-pressed=true] {border-color:var(--moon-accent);color:var(--moon-accent)}
+.moon-screen {position:relative;isolation:isolate;height:calc(100dvh - 90px);min-height:530px;max-height:1100px;background:#111923 url('/images/shackleton-outpost.webp') center/cover;border-block:1px solid #2b4150;overflow:hidden}
+.moon-screen canvas {display:block;position:absolute;width:100%;height:100%;inset:0;touch-action:none;cursor:grab}
+.moon-screen canvas:active {cursor:grabbing}
+.moon-gradient {position:absolute;inset:0;pointer-events:none;background:linear-gradient(0deg,#070b13c0,transparent 35%),linear-gradient(180deg,#080b1060,transparent 28%)}
+.moon-screen:has(.moon-welcome) .moon-gradient {background:linear-gradient(90deg,#070d19f2 0%,#070c19d3 24%,#070d1960 55%,transparent 82%),linear-gradient(0deg,#070d19bb,transparent 23%)}
+.moon-welcome {position:absolute;left:clamp(23px,7.3vw,106px);top:48%;transform:translateY(-50%);max-width:min(580px,83vw)}
+.moon-eyebrow {font-size:10px;letter-spacing:.17em;color:var(--moon-accent);font-weight:750;display:flex;align-items:center;gap:7px}
+.moon-eyebrow>span {width:6px;height:6px;background:var(--moon-accent);border-radius:100%;box-shadow:0 0 9px #b8f7df75}
+.moon-eyebrow b {color:#cbdbea;font-size:9px}
+.moon-welcome h1 {font-size:clamp(50px,8vw,112px);line-height:.88;letter-spacing:-.066em;margin:15px 0;color:#f7f8fb;font-weight:800;text-shadow:0 2px 35px #080b11a3}
+.moon-welcome h1 em {font-style:normal;color:var(--moon-accent)}
+.moon-welcome p {font-size:clamp(14px,1.7vw,21px);line-height:1.5;max-width:35ch;color:#d5e3ed;margin:23px 0 21px}
+.moon-primary,.moon-alt {display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid transparent;border-radius:7px;min-height:39px;padding:8px 12px;font-size:13px;font-weight:750;line-height:1.25}
+.moon-primary {color:#132b24;background:var(--moon-accent)}
+.moon-primary:hover:not(:disabled) {background:#dbffef}
+.moon-primary:disabled,.moon-alt:disabled {opacity:.53}
+.moon-alt {background:#162633;color:#deebf5;border-color:#365461}
+.moon-alt:hover:not(:disabled) {border-color:var(--moon-accent)}
+.moon-welcome .moon-primary {min-height:46px;padding-inline:16px}
+.moon-textlink {display:block;width:fit-content;font-size:12px;color:#c5d9e7;text-decoration:underline;text-underline-offset:4px;margin-top:13px}
+.moon-loading {position:absolute;left:24px;bottom:28px;background:#101b28e8;border:1px solid #3b5367;padding:10px 13px;border-radius:7px;font-size:13px;color:#e1effc}
+.moon-markers {position:absolute;inset:0;pointer-events:none}
+.moon-screen:has(.moon-welcome) .moon-markers {display:none}
+.moon-marker {position:absolute;top:0;left:0;pointer-events:auto;display:flex;align-items:center;gap:5px;visibility:hidden;padding:5px 8px;color:#e6f1f9;background:#0c1722ec;border:1px solid #577782;border-radius:6px;font-size:11px;font-weight:750;white-space:nowrap;box-shadow:0 3px 8px #02090b72}
+.moon-marker svg {color:var(--moon-accent)}
+.moon-marker:hover,.moon-marker.highlight {color:#0d2820;background:var(--moon-accent);border-color:#e6fff5;z-index:1}
+.moon-marker.highlight svg,.moon-marker:hover svg {color:#184035}
+.moon-location {position:absolute;top:18px;left:20px;display:grid;gap:4px;pointer-events:none;text-shadow:0 1px 4px #05080a}
+.moon-location strong {font-size:28px;line-height:1;letter-spacing:-.025em}
+.moon-location strong small {font-size:14px;color:#d2e0e9}
+.moon-condition {display:flex;align-items:center;gap:5px;font-size:11px;font-weight:750;color:#e9efce;margin-top:3px}
+.moon-condition.storm {color:var(--moon-gold)}
+.moon-reserves {position:absolute;right:19px;top:17px;display:grid;grid-template-columns:repeat(5,minmax(60px,1fr));border:1px solid #4d6879;background:#0f1927eb;border-radius:7px;overflow:hidden}
+.moon-reserves>div {padding:6px 8px;--meter:var(--moon-cyan)}
+.moon-reserves>div.gold {--meter:var(--moon-gold)}
+.moon-reserves>div.lime {--meter:var(--moon-accent)}
+.moon-reserves>div+div {border-left:1px solid #304657}
+.moon-reserves span {font-size:9px;color:#b7c9d6;display:flex;align-items:center;gap:4px}
+.moon-reserves svg {color:var(--meter)}
+.moon-reserves strong {display:block;margin:1px 0 3px;font-size:15px;line-height:1.05;letter-spacing:-.035em;white-space:nowrap}
+.moon-game progress {display:block;appearance:none;height:4px;width:100%;border:0;border-radius:5px;overflow:hidden;background:#344657;color:var(--meter,var(--moon-accent));accent-color:var(--meter,var(--moon-accent))}
+.moon-game progress::-webkit-progress-bar {background:#344657}
+.moon-game progress::-webkit-progress-value {background:var(--meter,var(--moon-accent))}
+.moon-game progress::-moz-progress-bar {background:var(--meter,var(--moon-accent))}
+.moon-story {position:absolute;bottom:59px;left:20px;width:min(420px,50vw);padding:14px 15px;background:#0b1625ed;border:1px solid #415e71;border-left:3px solid var(--moon-accent);border-radius:8px;box-shadow:0 5px 20px #01040b60}
+.moon-story h2 {font-size:clamp(19px,2.2vw,29px);margin:6px 0 4px;letter-spacing:-.03em}
+.moon-story p {font-size:13px;line-height:1.45;color:#c4d6e6;margin-bottom:9px}
+.moon-story p:last-child {margin-bottom:0}
+.moon-story .moon-primary {min-height:33px;padding-block:6px;font-size:12px}
+.moon-tools {display:grid;justify-items:end;gap:7px;position:absolute;right:20px;bottom:57px}
+.moon-compass,.moon-dpad button {display:grid;place-items:center;background:#122333de;color:#e1f5fc;border:1px solid #557487;border-radius:6px;touch-action:none}
+.moon-compass {width:34px;height:34px;margin-bottom:4px}
+.moon-dpad {display:grid;grid-template-columns:repeat(3,37px);grid-template-rows:repeat(2,35px);gap:4px}
+.moon-dpad button:active,.moon-compass:active {background:#4a716a;color:var(--moon-accent)}
+.moon-dpad .up {grid-column:2;grid-row:1}.moon-dpad .left {grid-column:1;grid-row:2}.moon-dpad .down {grid-column:2;grid-row:2}.moon-dpad .right {grid-column:3;grid-row:2}
+.moon-nearby {background:#173330ee;border-color:#79b4a3;color:var(--moon-accent);font-size:11px;min-height:28px;padding:5px 7px}
+.moon-station-list {position:absolute;bottom:11px;left:20px;right:20px;display:flex;gap:5px;overflow-x:auto;scrollbar-width:thin;padding:2px}
+.moon-station-list button {display:flex;align-items:center;gap:5px;white-space:nowrap;font-size:11px;font-weight:700;color:#dcecf6;padding:6px 9px;background:#0b1726ea;border:1px solid #3b5b6c;border-radius:5px}
+.moon-station-list button span {width:5px;height:5px;border-radius:50%;background:#7baebc}
+.moon-station-list button.selected,.moon-station-list button:hover {background:#233b36;color:var(--moon-accent);border-color:var(--moon-accent)}
+.moon-station-list button.selected span {background:var(--moon-accent)}
+.moon-footer {min-height:29px;font-size:10px;color:#a9bcca}
+.moon-fallback h1 {font-size:clamp(33px,5vw,62px)}
+.moon-dialog {position:fixed;inset:0 0 0 auto;margin:auto 17px auto auto;padding:19px;width:min(440px,calc(100vw - 24px));max-height:calc(100dvh - 28px);overflow:auto;border:1px solid #547589;border-radius:12px;background:#101d2bef;color:var(--moon-text);box-shadow:0 4px 30px #01050aa6}
+.moon-dialog::backdrop {background:#0409113b}
+.moon-dialog-close {position:absolute;right:9px;top:9px;display:grid;place-items:center;width:31px;height:31px;border:1px solid #3b5265;border-radius:6px;background:#1d3140}
+.moon-dialog-close:hover {border-color:var(--moon-accent)}
+.moon-dialog-label {font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--moon-accent);font-weight:750;margin-bottom:6px;padding-right:30px}
+.moon-dialog h2 {font-size:28px;letter-spacing:-.04em;padding-right:19px}
+.moon-dialog-copy {font-size:13px;line-height:1.55;color:#cbdaea;margin:9px 0 11px}
+.moon-tune,.moon-demo-meter,.moon-demo-number,.moon-forecast,.moon-goals {border:1px solid #324a5f;border-radius:7px;background:#0d1824}
+.moon-tune {display:flex;justify-content:space-between;align-items:center;gap:8px;padding:7px 8px;margin:5px 0}
+.moon-tune b,.moon-demo-meter b {font-size:13px}
+.moon-tune small,.moon-assign small {display:block;color:var(--moon-sub);font-size:10px;line-height:1.3}
+.moon-stepper {display:flex;align-items:center;gap:5px}
+.moon-stepper button {display:grid;place-items:center;min-width:29px;min-height:29px;color:var(--moon-accent);background:#182b36;border:1px solid #3d5767;border-radius:5px}
+.moon-stepper button:disabled {opacity:.5}
+.moon-stepper output {font-size:13px;font-weight:750;min-width:16px;text-align:center}
+.moon-source-link {display:flex;align-items:center;gap:4px;width:fit-content;color:#9ce9fb;font-size:11px;font-weight:700;margin:5px 0;overflow-wrap:anywhere}
+.moon-source-link:hover {text-decoration:underline}
+.moon-demo-meter,.moon-demo-number {display:flex;align-items:center;gap:7px;padding:8px;margin:7px 0;color:var(--moon-accent)}
+.moon-demo-meter>div {flex:1;display:grid;gap:3px}
+.moon-demo-number b {font-size:27px;line-height:1}
+.moon-demo-number span {font-size:12px;color:var(--moon-sub)}
+.moon-inline-note {color:#bfd0dd;font-size:11px;line-height:1.4;margin:6px 0}
+.moon-dose {display:grid;grid-template-columns:1fr 1fr;gap:5px;margin:8px 0}
+.moon-dose>div {padding:7px;border:1px solid #46505d;background:#192633;border-radius:5px;--meter:var(--moon-gold)}
+.moon-dose>div+div {--meter:var(--moon-accent)}
+.moon-dose span {display:block;font-size:11px;color:#c1d2e0}
+.moon-dose b {display:block;font-size:19px;margin:2px 0 5px}
+.moon-dose small {font-size:9px}
+.moon-assign {display:grid;gap:5px;margin:7px 0}
+.moon-assign button {display:flex;justify-content:space-between;align-items:center;gap:8px;text-align:left;padding:7px 9px;border:1px solid #375263;border-radius:6px;background:#142431}
+.moon-assign button[aria-pressed=true],.moon-assign button:hover {border-color:#7dcab4;background:#203834}
+.moon-assign b {font-size:12px}
+.moon-assign button>span:last-child {display:flex;align-items:center;gap:4px;color:var(--moon-gold);font-size:11px;font-weight:700}
+.moon-wide {width:100%;justify-content:flex-start;min-height:32px;margin:4px 0}
+.moon-forecast {padding:8px 9px;margin-top:9px}
+.moon-forecast>div:first-child {display:flex;justify-content:space-between;align-items:center;gap:7px;font-size:12px;color:#dceaf6}
+.moon-forecast>div:first-child span {display:flex;align-items:center;gap:5px}
+.moon-forecast .warning {color:#ffbd97;font-size:11px;margin-top:4px}
+.moon-forecast-grid {display:grid;grid-template-columns:repeat(5,1fr);gap:3px;margin-top:5px}
+.moon-forecast-grid span {display:grid;gap:2px;background:#192836;padding:4px;border-radius:4px;font-size:9px;color:#c0d0db}
+.moon-forecast-grid svg {color:var(--moon-accent)}
+.moon-forecast-grid b {font-size:11px;color:#f0f7fc;white-space:nowrap}
+.moon-dialog-actions {display:flex;gap:6px;align-items:center;justify-content:space-between;margin-top:10px}
+.moon-goals {display:flex;gap:7px;justify-content:space-between;padding:8px;margin:8px 0;font-size:10px;color:var(--moon-sub)}
+.moon-goals b {display:block;color:var(--moon-accent);font-size:15px}
+.moon-log-entry {border:1px solid #3c5161;border-radius:6px;padding:7px;margin:5px 0;font-size:12px;color:#c9dce8}
+.moon-log-entry summary {font-size:12px;font-weight:700;color:#e7f1f9;cursor:pointer}
+.moon-log-entry p,.moon-log-entry ul {margin:6px 0;font-size:11px;line-height:1.5}
+.moon-log-entry li {list-style:disc;margin-left:16px}
+.heritage-marker {color:#ffdda6;background:#30251ded;border-color:#cb9c62}
+.heritage-marker svg {color:#ffd294}
+.heritage-detail .moon-dialog-label,.heritage-location {display:flex;gap:5px;align-items:center}
+.heritage-detail .moon-dialog-label,.heritage-location svg {color:#ffd294}
+.heritage-origin {font-size:12px;color:var(--moon-sub);margin:4px 0}
+.heritage-location {color:#ffe3b6;font-size:11px;line-height:1.3;margin:6px 0 9px}
+.heritage-photo>div {position:relative;overflow:hidden;border-radius:6px;border:1px solid #576671;background:#070a10}
+.heritage-photo img {width:100%;height:clamp(153px,28dvh,256px);object-fit:contain;display:block}
+.heritage-photo figcaption {color:var(--moon-sub);font-size:10px;margin-top:4px}
+.heritage-sweep {position:absolute;inset-inline:0;height:2px;background:#b7fff1;box-shadow:0 0 13px 3px #71d9c898;pointer-events:none}
+.heritage-data {display:grid;grid-template-columns:repeat(auto-fit,minmax(112px,1fr));gap:6px}
+.heritage-data>div {padding:7px 8px;background:#132635;border:1px solid #365567;border-radius:5px}
+.heritage-data span {display:block;font-size:10px;color:#c4d9e5}
+.heritage-data strong {display:block;font-size:25px;letter-spacing:-.04em;font-variant-numeric:tabular-nums;color:var(--moon-accent)}
+.heritage-data small {font-size:11px;letter-spacing:0}
+.heritage-meter {height:4px;background:#314451;overflow:hidden;border-radius:3px}
+.heritage-meter i {display:block;height:100%;transform-origin:left;background:#83ead2}
+.heritage-links {display:flex;gap:15px;flex-wrap:wrap}
+.heritage-log-list {display:grid;gap:6px;margin:10px 0 3px}
+.heritage-log-list section {display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px;border:1px solid #364e61;border-radius:6px;background:#162734}
+.heritage-log-list section span {display:flex;align-items:center;gap:6px;font-size:13px;color:#ffd598}
+.heritage-log-list section small {font-size:10px;color:var(--moon-sub)}
+@media(prefers-reduced-motion:no-preference) {
+  .moon-dose progress {transform-origin:left;animation:moon-measure .85s cubic-bezier(.33,.75,.34,1) both}
+  @keyframes moon-measure {from {transform:scaleX(0)} to {transform:scaleX(1)}}
+}

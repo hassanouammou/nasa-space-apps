@@ -1,0 +1,48 @@
+.moon-dialog.comic-dialog {inset:0;margin:auto;width:min(975px,calc(100vw - 24px));padding:0;border-color:#628b95;background:#0c1824;overflow:auto}
+.comic-dialog::backdrop {background:#02050ae0;backdrop-filter:blur(4px)}
+.mission-comic {padding:clamp(12px,2.4vw,24px)}
+.comic-top {display:flex;justify-content:space-between;align-items:center;gap:8px;padding-right:35px;margin:0 0 12px;font-size:10px;letter-spacing:.13em;color:#c5dde9;font-weight:750}
+.comic-top span {display:flex;align-items:center;gap:7px}
+.comic-top svg,.comic-top strong {color:#a9f4dd}
+.comic-spread {display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);background:#0e212c;border:1px solid #67818d;border-radius:8px;overflow:hidden;animation:comic-page-in .24s ease-out}
+@keyframes comic-page-in {from {opacity:.3;transform:translateX(5px)} to {opacity:1;transform:none}}
+.comic-art {aspect-ratio:1;background:#101927 url('/images/shackleton-outpost.webp') center/cover;overflow:hidden}
+.comic-art img {width:100%;height:100%;object-fit:cover;display:block}
+.comic-copy {align-self:center;display:grid;gap:14px;padding:clamp(13px,3.5vw,39px)}
+.comic-chapter {font-size:10px;color:#9deed8;font-weight:800;letter-spacing:.16em}
+.comic-copy h2 {font-size:clamp(33px,5vw,66px);line-height:.96;letter-spacing:-.065em;margin:0;padding:0}
+.comic-bubble {position:relative;background:#ecf8f1;color:#102c31;border-radius:10px;padding:12px 13px;margin-left:5px}
+.comic-bubble::before {content:'';position:absolute;left:-8px;bottom:20px;border-top:7px solid transparent;border-bottom:7px solid transparent;border-right:9px solid #ecf8f1}
+.comic-bubble b {display:flex;align-items:center;gap:6px;color:#205b59;font-size:12px}
+.comic-bubble p {font-size:clamp(13px,1.65vw,17px);line-height:1.42;font-weight:650;margin:5px 0 0}
+.comic-action {font-size:12px;color:#c0d9e2}
+.comic-nav {display:flex;justify-content:space-between;align-items:center;gap:6px;margin-top:12px}
+.comic-pages {display:flex;gap:4px}
+.comic-pages button {width:27px;height:27px;border:1px solid #567381;border-radius:4px;font-size:11px;color:#cedfe8}
+.comic-pages button[aria-current] {background:#b8f7df;color:#122c2c;font-weight:800}
+.comic-skip {display:block;margin:8px auto 0;font-size:11px;color:#bad2dd;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:635px){
+  .comic-spread {grid-template-columns:1fr}
+  .comic-art {aspect-ratio:1.55}
+  .comic-copy {gap:7px;padding:10px 12px}
+  .comic-copy h2 {font-size:33px}
+  .comic-bubble {margin-left:0;padding:8px 10px}
+  .comic-bubble::before {display:none}
+  .comic-top {font-size:8px;letter-spacing:.07em}
+  .comic-nav .moon-primary,.comic-nav .moon-alt {font-size:11px;padding-inline:7px;white-space:nowrap}
+  .comic-pages button {width:20px;height:23px}
+}
+@media(prefers-reduced-motion:reduce){.comic-spread {animation:none}}
+.comic-dialog .comic-copy h2 {font-size:clamp(33px,5vw,66px);padding:0}
+.survey-decision .moon-dialog-label {display:flex;align-items:center;gap:6px}
+.survey-options {display:grid;gap:8px}
+.survey-option {display:grid;gap:5px;text-align:left;padding:10px;background:#142c38;border:1px solid #537482;border-radius:7px}
+.survey-option:hover:not(:disabled) {border-color:#a9f4dd;background:#20434a}
+.survey-option:disabled {opacity:.62}
+.survey-option strong,.survey-cost,.survey-cost>span {display:flex;gap:6px;align-items:center}
+.survey-option>span {color:#a9f4dd;font-size:12px}
+.survey-option small {color:#ccdde5;font-size:12px;line-height:1.4}
+.survey-cost {flex-wrap:wrap}
+.survey-cost>span {background:#0e202c;padding:4px 6px;border-radius:4px}
+.survey-decision a {text-decoration:underline;color:#a9f4dd}
+@media(max-width:635px){.comic-dialog .comic-copy h2 {font-size:33px}}

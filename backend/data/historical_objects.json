@@ -1,0 +1,20 @@
+[
+ {"id":"H01","name":"Lunar Roving Vehicle","short":"Apollo’s electric field vehicle","mission":"Apollo 17 · Apollo 15 first use","year":1972,"image":"/images/rover.webp",
+  "description":"The Lunar Roving Vehicle was a battery-powered exploration vehicle. Apollo 15 first used it in 1971, followed by Apollo 16 and Apollo 17 in 1972. Their rovers stayed on the lunar surface after each crew departed.",
+  "function":"Carry two suited astronauts, tools and samples across terrain beyond practical walking range.",
+  "importance":"The Apollo 17 rover traveled 30.5 km across three excursions, extending the reach of geological fieldwork. Its TV camera filmed Challenger’s ascent from the final parking area.",
+  "placement":"Apollo 17’s final parking position is separately labelled LRV in the NASA LRO image of the landing site.",
+  "sources":[{"title":"NASA · Apollo 17 mission details","url":"https://www.nasa.gov/missions/apollo/apollo-17-mission-details/"},{"title":"NASA · First Apollo lunar rover","url":"https://www.nasa.gov/history/50-years-ago-first-apollo-astronauts-to-drive-on-the-moon-took-final-cruise/"},{"title":"NASA APOD · VIP parking site","url":"https://apod.nasa.gov/apod/ap221217.html"}]},
+ {"id":"H02","name":"Lunar Module Descent Stage","short":"Challenger’s landing platform","mission":"Apollo 17 · Challenger","year":1972,"image":"/images/module.webp",
+  "description":"The lower stage of Challenger housed the descent engine, landing gear and surface equipment. It supported the crew’s landing and provided the platform from which the ascent stage lifted off.",
+  "function":"Control powered descent, absorb landing loads and support surface operations.",
+  "importance":"The remaining stage marks the Apollo 17 landing site and helps anchor later observations of the crew’s activities.",
+  "placement":"NASA’s Apollo 17 mission summary gives the Challenger landing point as 20.19080° N, 30.77168° E.",
+  "sources":[{"title":"NASA · Apollo 17 mission summary","url":"https://www.nasa.gov/wp-content/uploads/static/history/SP-4029/Apollo_17a_Summary.htm"},{"title":"NASA Science · Orbital image of Apollo 17","url":"https://science.nasa.gov/image-article/apod-2011-september-8-apollo-17-site-a-sharper-view/"}]},
+ {"id":"H03","name":"Apollo Lunar Surface Experiments Package","short":"ALSEP scientific station","mission":"Apollo 17 · ALSEP","year":1972,"image":"/images/alsep.webp",
+  "description":"ALSEP was a group of instruments and a central station deployed by Apollo crews. The Apollo 17 station measured properties of the Moon and its local environment.",
+  "function":"Support surface science including measurements related to heat flow, the lunar atmosphere and seismic activity.",
+  "importance":"Surface instruments collected observations independently of the crew’s presence and expanded the scientific return of the landing.",
+  "placement":"The Apollo 17 crew deployed the ALSEP about 185 m west-northwest of Challenger, according to NASA’s mission summary.",
+  "sources":[{"title":"NASA · Apollo 17 mission summary","url":"https://www.nasa.gov/wp-content/uploads/static/history/SP-4029/Apollo_17a_Summary.htm"},{"title":"NASA · Guidebook to Taurus–Littrow","url":"https://www.nasa.gov/wp-content/uploads/static/history/alsj/a17/EP-101-OCR.pdf"}]}
+]

@@ -1,0 +1,7 @@
+.git
+.openai
+.venv
+dist
+**/dist
+**/node_modules
+**/__pycache__

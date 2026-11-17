@@ -1,0 +1,14 @@
+[
+ {"terms":["why equipment left","left behind","leave equipment","left on moon","abandon","return mass","why did astronauts leave"],
+  "text":"Apollo lunar modules used a two-stage design. Challenger’s upper stage carried the crew back to lunar orbit, leaving the landing platform on the surface. The rover stayed at its final parking site, where its camera could follow liftoff. ALSEP was deployed on the surface to carry out scientific observations after the crew left. Each piece served a separate purpose in that mission design.",
+  "objects":["H02","H01","H03"]},
+ {"terms":["explore taurus","taurus littrow","exploration routes","apollo 17 explore","harrison schmitt","gene cernan","ronald evans"],
+  "text":"In December 1972, Eugene Cernan and Harrison Schmitt explored Taurus–Littrow while Ronald Evans orbited the Moon. On three surface excursions the crew used the rover to reach geological sites, deployed instruments and returned about 110 kg of lunar material. NASA reports that the rover covered 30.5 km.",
+  "objects":["H01","H03"]},
+ {"terms":["what can we learn","historical artifacts","heritage","protect","significance","archaeology"],
+  "text":"Apollo hardware and tracks preserve a record of where people traveled, what they measured and how they worked. The surface stations also reveal the research questions mission planners prioritized. Images from lunar orbit let researchers study these traces remotely. In LUNA-01, keep your distance and leave the objects in place.",
+  "objects":["H02","H03"]},
+ {"terms":["rover","lrv","roving vehicle","drive","car","wheels","battery powered"],"objects":["H01"]},
+ {"terms":["descent stage","challenger","lunar module","lander","landing platform"],"objects":["H02"]},
+ {"terms":["alsep","experiment","instruments","seismic","heat flow","scientific station","surface experiments"],"objects":["H03"]}
+]
